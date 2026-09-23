@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1700" viewBox="0 0 1200 1700" font-family="Segoe UI, Tahoma, Arial, sans-serif">
+  <rect width="1200" height="1700" fill="#eef3f8"/>
+  <!-- Header -->
+  <rect width="1200" height="230" fill="#0b3d66"/>
+  <text x="600" y="95" text-anchor="middle" font-size="52" font-weight="bold" fill="#ffffff">نظام التحكم بمضخات المياه</text>
+  <text x="600" y="150" text-anchor="middle" font-size="28" fill="#9fd0f5">Arduino Uno + D1 Robot LCD Keypad Shield + DS1302</text>
+  <text x="600" y="195" text-anchor="middle" font-size="22" fill="#cfe6fa">Water Pump Control System — Protections • Runtime • Event Log</text>
+
+  <!-- Components -->
+  <rect x="40" y="260" width="1120" height="400" rx="16" fill="#ffffff" stroke="#0b3d66" stroke-width="2"/>
+  <text x="1100" y="310" text-anchor="end" font-size="34" font-weight="bold" fill="#0b3d66">1) المكونات والتوصيل</text>
+  <text x="1100" y="352" text-anchor="end" font-size="24" fill="#333">Arduino Uno + LCD Keypad Shield (RS8 E9 D4-D7=4..7, Backlight10, Buttons A0)</text>
+  <text x="1100" y="392" text-anchor="end" font-size="24" fill="#333">DS1302 RTC: DAT→A4 • CLK→A5 • RST→D12 • VCC→5V • GND→GND</text>
+  <text x="1100" y="432" text-anchor="end" font-size="24" fill="#333">مضختان: Pump1→A1 • Pump2→A2 (ريليه، مضخة واحدة تعمل فقط)</text>
+  <text x="1100" y="472" text-anchor="end" font-size="24" fill="#333">حساس البئر D2 • حساس الخزان D3 (مقاطعة INT1)</text>
+  <text x="1100" y="512" text-anchor="end" font-size="24" fill="#333">قياس جهد البطارية A3 عبر مقسم: 12V —[10k]— A3 —[4.7k]— GND</text>
+  <text x="1100" y="552" text-anchor="end" font-size="24" fill="#333">جرس إنذار D13 • مؤشر الوضع التلقائي D11</text>
+  <text x="1100" y="600" text-anchor="end" font-size="22" fill="#0b7a3d">الشاشة لا تستخدم D12 — لا يوجد أي تعارض مع RTC</text>
+
+  <!-- Protections -->
+  <rect x="40" y="690" width="1120" height="360" rx="16" fill="#ffffff" stroke="#0b3d66" stroke-width="2"/>
+  <text x="1100" y="740" text-anchor="end" font-size="34" font-weight="bold" fill="#0b3d66">2) الحماية والمميزات</text>
+  <text x="1100" y="785" text-anchor="end" font-size="24" fill="#333">حماية الجفاف Dry-Run: مهلة (0-30 دقيقة) ثم إيقاف إجباري + إنذار DRY FAULT</text>
+  <text x="1100" y="825" text-anchor="end" font-size="24" fill="#333">حماية الجهد المنخفض: عتبة 9-13V، إيقاف بعد ثانيتين + إنذار VOLT LOW</text>
+  <text x="1100" y="865" text-anchor="end" font-size="24" fill="#333">منع التزامن: setSinglePump + فحص مستمر، خطأ BOTH-FAULT عند التشغيل المزدوج</text>
+  <text x="1100" y="905" text-anchor="end" font-size="24" fill="#333">عداد ساعات التشغيل لكل مضخة (يحفظ في EEPROM كل دقيقة)</text>
+  <text x="1100" y="945" text-anchor="end" font-size="24" fill="#333">تنبيه الصيانة MAINT DUE عند بلوغ الحد (افتراضي 1000 ساعة)</text>
+  <text x="1100" y="990" text-anchor="end" font-size="24" fill="#333">ذاكرة أحداث: آخر 15 حدثًا مع الوقت والتاريخ في EEPROM</text>
+
+  <!-- Control -->
+  <rect x="40" y="1080" width="1120" height="380" rx="16" fill="#ffffff" stroke="#0b3d66" stroke-width="2"/>
+  <text x="1100" y="1130" text-anchor="end" font-size="34" font-weight="bold" fill="#0b3d66">3) واجهة التحكم</text>
+  <text x="1100" y="1175" text-anchor="end" font-size="24" fill="#333">قائمة LCD:</text>
+  <text x="1100" y="1212" text-anchor="end" font-size="23" fill="#333">Mode • Control • DryRun • Voltage • PumpTime • RunTime • Events • Faults • Clock • Back</text>
+  <text x="1100" y="1252" text-anchor="end" font-size="24" fill="#333">الأزرار (A0): أعلى / أسفل / يمين / يسار / SELECT للتنقل والتعديل</text>
+  <text x="1100" y="1292" text-anchor="end" font-size="24" fill="#333">أوضاع التشغيل: يدوي MANUAL • تلقائي AUTO • إيقاف OFF</text>
+  <text x="1100" y="1332" text-anchor="end" font-size="24" fill="#333">التحكم: بالحساسات (البئر + الخزان) أو بالتوقيت الزمني مع تناوب المضختين</text>
+  <text x="1100" y="1372" text-anchor="end" font-size="24" fill="#333">أوامر Serial (9600): status • set_time • drymin • voltlow • maint • runtime • events • faults</text>
+  <text x="1100" y="1412" text-anchor="end" font-size="22" fill="#555">مثال: set_time,15,28,0,23,9,26 — عبر pio device monitor</text>
+
+  <!-- Footer -->
+  <rect x="40" y="1490" width="1120" height="150" rx="16" fill="#0b3d66"/>
+  <text x="600" y="1545" text-anchor="middle" font-size="26" fill="#ffffff">PlatformIO • Arduino Uno • baud 9600 • RAM 32% • Flash 64%</text>
+  <text x="600" y="1590" text-anchor="middle" font-size="22" fill="#9fd0f5">EEPROM محفوظ: الوضع 0 • التحكم 3 • ساعات التشغيل 12/16 • الأحداث 100-189</text>
+</svg>
