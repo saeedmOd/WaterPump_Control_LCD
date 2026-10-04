@@ -1,3 +1,5 @@
+<img width="1696" height="2528" alt="e3d046e151fbcc384056a129" src="https://github.com/user-attachments/assets/0844ee64-aa1a-4b20-b7b6-b111ff6ff5f0" />
+
 # Water Pump Control System — Arduino Uno
 
 Smart 2-pump water level control system for Arduino Uno with an LCD keypad shield,
